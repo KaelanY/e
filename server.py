@@ -199,7 +199,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 body = resp.read()
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
-            self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(body)
         except urllib.error.HTTPError as e:
@@ -212,7 +211,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         body = json.dumps(data, default=str).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(body)
 
@@ -220,7 +218,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         body = json.dumps({"error": msg}).encode()
         self.send_response(code)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(body)
 
