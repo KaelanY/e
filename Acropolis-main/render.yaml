@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: acropolis-backend
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python server.py
-    envVars:
-      - key: FRED_API_KEY
-        sync: false
